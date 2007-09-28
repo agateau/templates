@@ -1,0 +1,5 @@
+find_package(KDE3 REQUIRED)
+include_directories(${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR})
+link_directories(${KDE3_LIB_DIR})
+add_executable(hello main.cpp)
+target_link_libraries(hello ${QT_AND_KDECORE_LIBS})
