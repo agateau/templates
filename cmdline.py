@@ -4,7 +4,7 @@ from optparse import OptionParser
 
 def main():
     parser = OptionParser()
-    
+
     # Add an option which takes an argument and is stored in options.filename.
     # 'metavar' is an example of argument and should match the text in 'help'.
     parser.add_option("-f", "--file", dest="filename",
