@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import sys
 from optparse import OptionParser
 
 
@@ -21,7 +22,9 @@ def main():
     print "verbose:", options.verbose
     print "args:", args
 
+    return 0
+
 
 if __name__=="__main__":
-    main()
+    sys.exit(main())
 # vi: ts=4 sw=4 et
