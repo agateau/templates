@@ -18,7 +18,7 @@ public:
             fprintf(stderr, " ");
         }
         fprintf(stderr, "/%s\n", m_name);
-        delete m_name;
+        free(m_name);
     }
 
 private:
