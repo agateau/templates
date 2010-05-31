@@ -8,9 +8,17 @@ from PyKDE4.kdecore import *
 from PyKDE4.kdeui import *
 
 
-class Window(QWidget):
+class Window(KMainWindow):
     def __init__(self):
-        QWidget.__init__(self)
+        KMainWindow.__init__(self)
+
+        self.toolBar().addAction(KStandardAction.open(self.openFile, self))
+
+        content = QLabel("Hello!")
+        self.setCentralWidget(content)
+
+    def openFile(self):
+        print "openFile"
 
 def main():
     KCmdLineArgs.init(sys.argv,
