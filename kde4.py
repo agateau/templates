@@ -21,12 +21,17 @@ class Window(KMainWindow):
         print "openFile"
 
 def main():
-    KCmdLineArgs.init(sys.argv,
-        "internal-name",
-        "",
-        ki18n("Public Name"),
-        "1.0",
-        ki18n("Description"))
+    aboutData = KAboutData(
+        "internal-name", # appName
+        "", # catalogName
+        ki18n("Public Name"), # programName
+        "1.0")
+    aboutData.setLicense(KAboutData.License_GPL_V3)
+    aboutData.setShortDescription(ki18n("Description"))
+    aboutData.setCopyrightStatement(ki18n("(c) YEAR Author"))
+    aboutData.setProgramIconName("kde")
+
+    KCmdLineArgs.init(sys.argv, aboutData)
     app = KApplication()
     window = Window()
 
