@@ -25,5 +25,5 @@ target_link_libraries(template
 
 # Install
 install(TARGETS template
-    BINARY DESTINATION bin
+    DESTINATION bin
     )
