@@ -7,6 +7,7 @@ set(SRCS
 	main.cpp
 	)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Woverloaded-virtual")
 kde4_add_executable(testknotify ${SRCS})
 
 target_link_libraries(testknotify

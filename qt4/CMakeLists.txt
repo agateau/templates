@@ -15,6 +15,7 @@ include_directories(
     ${QT_QTGUI_INCLUDE_DIR}
     )
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Woverloaded-virtual")
 qt4_automoc(${template_SRCS})
 add_executable(template ${template_SRCS})
 
