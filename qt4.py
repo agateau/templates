@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import signal
 import sys
 
 from PyQt4.QtCore import *
@@ -9,6 +10,7 @@ class Window(QWidget):
         QWidget.__init__(self)
 
 def main():
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
     app = QApplication(sys.argv)
     window = Window()
 
