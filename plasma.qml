@@ -7,4 +7,14 @@ PlasmaCore.FrameSvgItem {
     imagePath: "dialogs/background"
     width: 400
     height: 300
+
+    Item {
+        anchors {
+            fill: parent
+            leftMargin: parent.margins.left
+            topMargin: parent.margins.top
+            rightMargin: parent.margins.right
+            bottomMargin: parent.margins.bottom
+        }
+    }
 }
