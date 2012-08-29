@@ -1,0 +1,14 @@
+SOURCES:
+/home/aurelien/src/templates/kde4/main.cpp
+MOC_COMPILE_DEFINITIONS:
+_BSD_SOURCE
+MOC_DEFINITIONS:
+ -D_BSD_SOURCE
+MOC_INCLUDES:
+
+CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE:
+ON
+CMAKE_BINARY_DIR:
+/home/aurelien/src/templates/kde4/build
+CMAKE_SOURCE_DIR:
+/home/aurelien/src/templates/kde4

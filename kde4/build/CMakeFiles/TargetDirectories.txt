@@ -1,0 +1,3 @@
+/home/aurelien/src/templates/kde4/build/CMakeFiles/kde4app.dir
+/home/aurelien/src/templates/kde4/build/CMakeFiles/kde4app_automoc.dir
+/home/aurelien/src/templates/kde4/build/CMakeFiles/uninstall.dir
