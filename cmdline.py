@@ -1,8 +1,9 @@
 #!/usr/bin/env python
+# encoding: utf-8
 import sys
 from optparse import OptionParser
 
-USAGE="%prog <arg1> <arg2>..."
+USAGE = "%prog <arg1> <arg2>..."
 
 def main():
     parser = OptionParser(usage=USAGE)
