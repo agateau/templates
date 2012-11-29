@@ -20,14 +20,14 @@ int main(int argc, char** argv)
     KCmdLineArgs::init(argc, argv, &aboutData);
 
     KCmdLineOptions options;
-    options.add("+[file]", ki18n("File to open"));
+    options.add("+[file]", ki18n("An optional file to open"));
     options.add("q").add("quiet", ki18n("Be quiet"));
     options.add("timeout <value>", ki18n("A timeout, with a default value"), "1000");
     KCmdLineArgs::addCmdLineOptions(options);
 
-    KApplication app;
-
     KCmdLineArgs* args = KCmdLineArgs::parsedArgs();
+
+    KApplication app;
 
     bool quiet = args->isSet("q");
     int timeout = args->getOption("timeout").toInt();
