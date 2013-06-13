@@ -18,7 +18,7 @@ def main():
     parser.add_argument("-v", "--verbose", action="count",
         help="Be more verbose")
 
-    parser.add_argument("mandatory_arg", nargs=1)
+    parser.add_argument("mandatory_arg")
     parser.add_argument("optional_arg", nargs="?")
 
     args = parser.parse_args()
