@@ -7,7 +7,7 @@ static void dumpViewModel(QAbstractItemView *view, const QModelIndex &root = QMo
     int count = model->rowCount(root);
     QItemSelectionModel* sel = view->selectionModel();
     for (int row = 0; row < count; ++row) {
-        for (int x = indent; x > 0; --x) {
+        for (int x = indent; x > 0; x) {
             std::cerr << ' ';
         }
         QModelIndex index = model->index(row, 0, root);

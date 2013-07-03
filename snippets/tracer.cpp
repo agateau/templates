@@ -13,7 +13,7 @@ public:
 
     ~Tracer()
     {
-        s_indent--;
+        s_indent;
         for (int x=0; x < Tracer::s_indent; ++x) {
             fprintf(stderr, " ");
         }
