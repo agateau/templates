@@ -1,9 +1,16 @@
+#include <main.h>
+
 #include <KAboutData>
 #include <KApplication>
 #include <KCmdLineArgs>
 #include <KDebug>
 #include <KLocale>
 #include <KUrl>
+
+Window::Window()
+{
+    
+}
 
 int main(int argc, char** argv)
 {
@@ -43,5 +50,10 @@ int main(int argc, char** argv)
         kWarning() << "file (as url)=" << fileAsUrl;
     }
 
+    Window window;
+    window.show();
+
 	return app.exec();
 }
+
+#include <main.moc>
