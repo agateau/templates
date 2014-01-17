@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # encoding: utf-8
+
+# Python 2/3 compatibility
+from __future__ import division, absolute_import, print_function, unicode_literals
+
 import sys
 import argparse
 
@@ -23,10 +27,10 @@ def main():
 
     args = parser.parse_args()
 
-    print "filename:", args.filename
-    print "verbose:", args.verbose
-    print "mandatory_arg:", args.mandatory_arg
-    print "optional_arg:", args.optional_arg
+    print("filename:", args.filename)
+    print("verbose:", args.verbose)
+    print("mandatory_arg:", args.mandatory_arg)
+    print("optional_arg:", args.optional_arg)
 
     return 0
 
