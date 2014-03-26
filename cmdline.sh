@@ -3,13 +3,13 @@ set -e
 
 PROGNAME=$(basename $0)
 
-die () {
+die() {
     echo "$PROGNAME: ERROR: $*" | fold -s -w "${COLUMNS:-80}" >&2
     exit 1
 }
 
 
-usage () {
+usage() {
     if [ "$*" != "" ] ; then
         echo "ERROR: $*"
     fi
