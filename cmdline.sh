@@ -13,9 +13,9 @@ usage() {
     if [ "$*" != "" ] ; then
         echo "ERROR: $*"
     fi
-    
+
     cat << EOF
-Usage: $PROGNAME [OPTION ...]
+Usage: $PROGNAME [OPTION ...] <framework-name> <language>
   ...program description...
 Options:
   -h, --help          display this usage message and exit
@@ -24,53 +24,32 @@ EOF
     exit 1
 }
 
-
-# getopt "magic"
-TEMP=$(getopt -o hab:c:: --long help,a-long,b-long:,c-long:: \
-     -n $PROGNAME -- "$@")
-
-[ $? = 0 ] || die "Terminating..."
-
-# Note the quotes around `$TEMP': they are essential!
-eval set -- "$TEMP"
-
-while true ; do
+fw_name=""
+lang=""
+while [ $# -gt 0 ] ; do
     case "$1" in
     -h|--help)
         usage
         ;;
-    -a|--a-long)
-        echo "Option a"
-        shift
-        ;;
-    -b|--b-long)
-        echo "Option b, argument \`$2'"
-        shift 2
-        ;;
-    -c|--c-long) 
-        # c has an optional argument. As we are in quoted mode,
-        # an empty parameter will be generated if its optional
-        # argument is not found.
-        case "$2" in
-        "")
-            echo "Option c, no argument"
-            shift 2
-            ;;
-        *)
-            echo "Option c, argument \`$2'"
-            shift 2
-            ;;
-        esac
-        ;;
-    --)
-        shift
-        break
+    -*)
+        usage "Unknown option '$1'"
         ;;
     *)
-        die "Internal error!"
+        if [ -z "$fw_name" ] ; then
+            fw_name="$1"
+        elif [ -z "$lang" ] ; then
+            lang="$1"
+        else
+            usage "Too many arguments"
+        fi
         ;;
     esac
+    shift
 done
+
+if [ -z "$lang" ] ; then
+    usage "Not enough arguments"
+fi
 
 # Remaining arguments are in $*
 # vim:set ts=4 sw=4 et:
