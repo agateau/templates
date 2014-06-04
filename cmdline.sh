@@ -4,41 +4,52 @@ set -e
 PROGNAME=$(basename $0)
 
 die() {
-    echo "$PROGNAME: ERROR: $*" | fold -s -w "${COLUMNS:-80}" >&2
+    echo "$PROGNAME: $*" >&2
     exit 1
 }
 
-
 usage() {
     if [ "$*" != "" ] ; then
-        echo "ERROR: $*"
+        echo "Error: $*"
     fi
 
     cat << EOF
-Usage: $PROGNAME [OPTION ...] <framework-name> <language>
-  ...program description...
+Usage: $PROGNAME [OPTION ...] [foo] [bar]
+<Program description>.
+
 Options:
   -h, --help          display this usage message and exit
+  -d, --delete        delete things
+  -o, --output [FILE] write output to file
 EOF
 
     exit 1
 }
 
-fw_name=""
-lang=""
+foo=""
+bar=""
+delete=0
+output="-"
 while [ $# -gt 0 ] ; do
     case "$1" in
     -h|--help)
         usage
         ;;
+    -d|--delete)
+        delete=1
+        ;;
+    -o|--output)
+        output=$2
+        shift
+        ;;
     -*)
         usage "Unknown option '$1'"
         ;;
     *)
-        if [ -z "$fw_name" ] ; then
-            fw_name="$1"
-        elif [ -z "$lang" ] ; then
-            lang="$1"
+        if [ -z "$foo" ] ; then
+            foo="$1"
+        elif [ -z "$bar" ] ; then
+            bar="$1"
         else
             usage "Too many arguments"
         fi
@@ -47,9 +58,15 @@ while [ $# -gt 0 ] ; do
     shift
 done
 
-if [ -z "$lang" ] ; then
+if [ -z "$bar" ] ; then
     usage "Not enough arguments"
 fi
 
-# Remaining arguments are in $*
+cat <<EOF
+foo=$foo
+bar=$bar
+delete=$delete
+output=$output
+EOF
+
 # vim:set ts=4 sw=4 et:
