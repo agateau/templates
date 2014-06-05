@@ -39,7 +39,7 @@ while [ $# -gt 0 ] ; do
         delete=1
         ;;
     -o|--output)
-        output=$2
+        output="$2"
         shift
         ;;
     -*)
