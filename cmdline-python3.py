@@ -1,31 +1,31 @@
 #!/usr/bin/env python3.1
 import sys
-from optparse import OptionParser
+import argparse
 
+DESCRIPTION = """\
+"""
 
 def main():
-    parser = OptionParser()
+    parser = argparse.ArgumentParser(description=DESCRIPTION)
 
-    # Add an option which takes an argument and is stored in options.filename.
-    # 'metavar' is an example of argument and should match the text in 'help'.
-    parser.add_option("-f", "--file", dest="filename",
-                      help="write report to FILE", metavar="FILE")
+    parser.add_argument("-f", "--file", dest="filename",
+        help="write report to FILE", metavar="FILE")
 
-    # Add a boolean option stored in options.verbose.
-    parser.add_option("-q", "--quiet",
-                      action="store_false", dest="verbose", default=True,
-                      help="don't print status messages to stdout")
+    parser.add_argument("-n", "--dry-run", action="store_true",
+        help="Simulate")
 
-    (options, args) = parser.parse_args()
+    parser.add_argument("-v", "--verbose", action="count",
+        help="Be more verbose")
 
-    print("filename:", options.filename)
-    print("verbose:", options.verbose)
-    print("args:", args)
+    parser.add_argument("mandatory_arg")
+    parser.add_argument("optional_arg", nargs="?")
 
-    json_name = args[0]
-    output_name = args[1]
-    providers = load_search_providers(json_name)
+    args = parser.parse_args()
 
+    print("filename:", args.filename)
+    print("verbose:", args.verbose)
+    print("mandatory_arg:", args.mandatory_arg)
+    print("optional_arg:", args.optional_arg)
 
     return 0
 
