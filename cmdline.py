@@ -1,15 +1,12 @@
-#!/usr/bin/env python
-# encoding: utf-8
-
-# Python 2/3 compatibility
-from __future__ import division, absolute_import, print_function, unicode_literals
-
-import argparse
+#!/usr/bin/env python3
 import sys
+import argparse
 
+DESCRIPTION = """\
+"""
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=DESCRIPTION)
 
     parser.add_argument('-f', '--file', dest='filename',
         help='write report to FILE', metavar='FILE')
