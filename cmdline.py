@@ -6,7 +6,9 @@ DESCRIPTION = """\
 """
 
 def main():
-    parser = argparse.ArgumentParser(description=DESCRIPTION)
+    parser = argparse.ArgumentParser()
+
+    parser.description = DESCRIPTION
 
     parser.add_argument('-f', '--file', dest='filename',
         help='write report to FILE', metavar='FILE')
