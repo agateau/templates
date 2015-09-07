@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-import sys
 import argparse
+import sys
+
 
 DESCRIPTION = """\
 """
 
+
 def main():
     parser = argparse.ArgumentParser()
-
     parser.description = DESCRIPTION
 
     parser.add_argument('-f', '--file', dest='filename',
