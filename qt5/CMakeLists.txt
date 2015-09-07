@@ -1,11 +1,14 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 # Dependencies
-find_package(Qt5 CONFIG REQUIRED Core)
+find_package(Qt5 CONFIG REQUIRED Core Widgets)
+
+set(CMAKE_AUTOMOC ON)
 
 # Sources
 set(template_SRCS
     main.cpp
+    window.cpp
     )
 
 # Building
@@ -17,7 +20,7 @@ include_directories(
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Woverloaded-virtual -std=c++11")
 add_executable(template ${template_SRCS})
 
-target_link_libraries(template Qt5::Core)
+target_link_libraries(template Qt5::Core Qt5::Widgets)
 
 # Install
 install(TARGETS template
