@@ -25,6 +25,7 @@ def main():
 
     args = parser.parse_args()
 
+    print('dry_run', args.dry_run)
     print('filename:', args.filename)
     print('verbose:', args.verbose)
     print('mandatory_arg:', args.mandatory_arg)
