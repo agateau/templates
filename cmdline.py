@@ -12,13 +12,13 @@ def main():
     parser.description = DESCRIPTION
 
     parser.add_argument('-f', '--file', dest='filename',
-        help='write report to FILE', metavar='FILE')
+                        help='write report to FILE', metavar='FILE')
 
     parser.add_argument('-n', '--dry-run', action='store_true',
-        help='Simulate')
+                        help='Simulate')
 
     parser.add_argument('-v', '--verbose', action='count',
-        help='Be more verbose')
+                        help='Be more verbose')
 
     parser.add_argument('mandatory_arg')
     parser.add_argument('optional_arg', nargs='?')
