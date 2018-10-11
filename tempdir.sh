@@ -3,12 +3,10 @@ TEMP_DIR="$(mktemp -d -- "/tmp/myscript-XXXXXX")"
 
 cleanup() {
     echo "Deleting $TEMP_DIR"
-    ls $TEMP_DIR
     rm -rf $TEMP_DIR
 }
 
-#trap cleanup INT TERM EXIT
-trap cleanup INT
+trap cleanup INT TERM EXIT
 
 echo "Creating $TEMP_DIR/test"
 touch $TEMP_DIR/test
