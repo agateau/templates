@@ -1,5 +1,6 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 
 PROGNAME=$(basename $0)
 
