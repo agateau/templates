@@ -1,7 +1,10 @@
-def setup_logger(logfile, debug):
+import logging
+
+FORMAT = "%(asctime)s:%(levelname)s:%(funcName)s: %(message)s"
+
+
+def setup_logger(filename="-", debug=True):
     level = logging.DEBUG if debug else logging.INFO
-    if logfile == '-':
-        logfile = None
-    logging.basicConfig(
-        filename=logfile, level=level,
-        format='%(asctime)s:%(levelname)s:%(funcName)s: %(message)s')
+    if filename == "-":
+        filename = None
+    logging.basicConfig(filename=filename, level=level, format=FORMAT)
