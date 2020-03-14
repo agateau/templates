@@ -14,7 +14,7 @@
  *   src/f.cpp:110 <returned_value>
  *
  * void g(int arg1, const QString &arg2) {
- *   foo(INLOG1("arg1") arg1, INLOG1("arg2") << arg2);
+ *   foo(INLOG1("arg1") arg1, INLOG1("arg2") arg2);
  * }
  *
  * Logs the values of arg1 and arg2, prefixing them with the string argument:
@@ -25,18 +25,16 @@
 
 #include <QDebug>
 
-class InLog
-{
+class InLog {
 public:
-    InLog(const char *file, int line, const char *msg = 0)
+    InLog(const char* file, int line, const char* msg = nullptr)
     : m_file(file)
     , m_line(line)
     , m_msg(msg)
     {}
 
     template <class T>
-    QDebug log(QDebug dbg, const T &value) const
-    {
+    QDebug log(QDebug dbg, const T& value) const {
         dbg.nospace() << m_file << ':' << m_line;
         if (m_msg) {
             dbg << ' ' << m_msg << ':';
@@ -46,19 +44,19 @@ public:
     }
 
 private:
-    const char *m_file;
-    int m_line;
-    const char *m_msg;
+    const char* const m_file;
+    const int m_line;
+    const char* const m_msg;
 };
 
 template <class T>
-T& operator<<(const InLog &log, T &value) {
+T& operator<<(const InLog& log, T& value) {
     log.log(qWarning(), value);
     return value;
 }
 
 template <class T>
-const T& operator<<(const InLog &log, const T &value) {
+const T& operator<<(const InLog& log, const T& value) {
     log.log(qWarning(), value);
     return value;
 }

@@ -22,9 +22,6 @@ public:
     explicit QtJsonVars(const QString& path) : mPath(path) {
         if (mPath[0] == '$') {
             mPath = qgetenv(mPath.mid(1).toUtf8().constData());
-            if (!QFile::exists(mPath)) {
-                qWarning() << mPath << "does not exist";
-            }
         }
         reload();
     }
