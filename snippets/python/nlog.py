@@ -23,7 +23,9 @@ class NLog:
 
     def _log(self, level, msg, *args):
         timestamp = time.strftime("%H:%M:%S", time.localtime())
-        msg = "{} {} {}\n".format(timestamp, level, msg % args)
+        if args:
+            msg = msg % args
+        msg = "{} {} {}\n".format(timestamp, level, msg)
         self.fl.write(msg)
         self.fl.flush()
 
