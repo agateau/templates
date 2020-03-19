@@ -13,3 +13,7 @@ add_executable(qtjsonvars qtjsonvars.cpp)
 target_link_libraries(qtjsonvars Qt5::Core)
 
 add_executable(mtracer mtracer.cpp)
+
+add_executable(backtrace backtrace.cpp)
+target_link_libraries(backtrace)
+set_target_properties(backtrace PROPERTIES LINK_FLAGS -rdynamic)
