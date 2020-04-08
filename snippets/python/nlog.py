@@ -21,6 +21,9 @@ class NLog:
     def error(self, msg, *args):
         self._log("E", msg, *args)
 
+    def exception(self, msg, *args):
+        self._log("X", msg, *args)
+
     def _log(self, level, msg, *args):
         timestamp = time.strftime("%H:%M:%S", time.localtime())
         if args:
