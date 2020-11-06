@@ -12,6 +12,7 @@ die() {
 usage() {
     if [ "$*" != "" ] ; then
         echo "Error: $*"
+        echo
     fi
 
     cat << EOF
