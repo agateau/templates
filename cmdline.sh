@@ -1,6 +1,5 @@
 #!/bin/bash
 set -euo pipefail
-IFS=$'\n\t'
 
 PROGNAME=$(basename $0)
 
@@ -70,5 +69,3 @@ bar=$bar
 delete=$delete
 output=$output
 EOF
-
-# vim:set ts=4 sw=4 et:
