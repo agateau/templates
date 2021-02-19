@@ -7,8 +7,9 @@ import sys
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.description = __doc__
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description=__doc__)
 
     parser.add_argument("-f", "--file", dest="filename",
                         help="write report to FILE", metavar="FILE")
