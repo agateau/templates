@@ -12,6 +12,7 @@ def main():
         description=__doc__)
 
     parser.add_argument("-f", "--file", dest="filename",
+                        type=argparse.FileType("w", encoding="utf-8"),
                         help="write report to FILE", metavar="FILE")
 
     parser.add_argument("-n", "--dry-run", action="store_true",
