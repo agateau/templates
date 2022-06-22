@@ -1,5 +1,5 @@
 #!/bin/sh -e
-TEMP_DIR="$(mktemp --tmpdir -d "/tmp/myscript-XXXXXX")"
+TEMP_DIR="$(mktemp --tmpdir -d "myscript-XXXXXX")"
 
 cleanup() {
     echo "Deleting $TEMP_DIR"
