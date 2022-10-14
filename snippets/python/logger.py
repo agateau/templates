@@ -7,4 +7,6 @@ def setup_logger(filename="-", debug=True):
     level = logging.DEBUG if debug else logging.INFO
     if filename == "-":
         filename = None
-    logging.basicConfig(filename=filename, level=level, format=FORMAT)
+    logging.basicConfig(
+        filename=filename, level=level, format=FORMAT, datefmt="%Y-%m-%dT%H:%M:%S"
+    )
