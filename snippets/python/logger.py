@@ -1,6 +1,6 @@
 import logging
 
-FORMAT = "%(asctime)s:%(levelname)s:%(funcName)s: %(message)s"
+LOG_FORMAT = "%(asctime)s:%(levelname)s:%(funcName)s: %(message)s"
 
 
 def setup_logger(filename="-", debug=True):
@@ -8,5 +8,5 @@ def setup_logger(filename="-", debug=True):
     if filename == "-":
         filename = None
     logging.basicConfig(
-        filename=filename, level=level, format=FORMAT, datefmt="%Y-%m-%dT%H:%M:%S"
+        filename=filename, level=level, format=LOG_FORMAT, datefmt="%Y-%m-%dT%H:%M:%S"
     )
