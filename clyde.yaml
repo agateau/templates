@@ -1,0 +1,18 @@
+name: pkg
+description: Pkg is a wonderful tool.
+homepage: https://pkg.example.com/
+repository: https://pkg.example.com/git
+releases:
+  0.0.0:
+    any:
+      url: https://pkg.example.com/download/pkg
+      sha256: 0
+installs:
+  0.0.0:
+    any:
+      files:
+        pkg${exe_ext}: bin/
+tests:
+  0.0.0:
+    any:
+      - pkg${exe_ext} --version
