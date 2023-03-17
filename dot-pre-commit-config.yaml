@@ -1,0 +1,54 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  # Rust
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: fmt
+      - id: clippy
+      - id: cargo-check
+        stages: [push]
+
+  # Markdown
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.32.2
+    hooks:
+      - id: markdownlint-fix
+        args: []
+
+  # Python
+  # needs this in pyproject.toml:
+  #
+  # [tool.isort]
+  # profile = "black"
+  - repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
+      - id: black
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+
+  # Local command
+  - repo: local
+    hooks:
+      - id: rst
+        name: rst
+        entry: rst-lint --encoding utf-8
+        files: ^(RELEASING.rst|README.rst|TIDELIFT.rst)$
+        language: python
+        # use require_serial if the script must be called only once per commit
+        require_serial: true
+        # set this if the script does not accept filenames as arguments
+        pass_filenames: false
+        additional_dependencies: [pygments, restructuredtext_lint]
