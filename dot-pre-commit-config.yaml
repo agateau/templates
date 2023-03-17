@@ -52,3 +52,9 @@ repos:
         # set this if the script does not accept filenames as arguments
         pass_filenames: false
         additional_dependencies: [pygments, restructuredtext_lint]
+
+  # Check GitHub workflows
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.19.0
+    hooks:
+      - id: check-github-workflows
