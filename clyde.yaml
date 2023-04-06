@@ -12,7 +12,5 @@ installs:
     any:
       files:
         pkg${exe_ext}: bin/
-tests:
-  0.0.0:
-    any:
-      - pkg${exe_ext} --version
+      tests:
+        - pkg${exe_ext} --version
