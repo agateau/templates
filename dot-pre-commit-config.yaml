@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v4.4.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -26,18 +26,15 @@ repos:
         args: []
 
   # Python
-  # needs this in pyproject.toml:
-  #
-  # [tool.isort]
-  # profile = "black"
   - repo: https://github.com/psf/black
-    rev: 22.8.0
+    rev: 23.3.0
     hooks:
       - id: black
   - repo: https://github.com/PyCQA/isort
-    rev: 5.10.1
+    rev: 5.12.0
     hooks:
       - id: isort
+        args: [--profile, black]
 
   # Local command
   - repo: local
@@ -55,6 +52,6 @@ repos:
 
   # Check GitHub workflows
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.19.0
+    rev: 0.23.1
     hooks:
       - id: check-github-workflows
