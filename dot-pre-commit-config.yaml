@@ -50,6 +50,16 @@ repos:
         pass_filenames: false
         additional_dependencies: [pygments, restructuredtext_lint]
 
+  # Makefile
+  - repo: local
+    hooks:
+      - id: font-update
+        name: font-update
+        language: system
+        files: \.(po|ttc)$
+        entry: make font-update
+        pass_filenames: false
+
   # Check GitHub workflows
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.23.1
