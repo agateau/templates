@@ -1,3 +1,4 @@
+import sys
 import time
 
 
@@ -6,8 +7,11 @@ class NLog:
     When you can't figure out what is going on, where logging messages are
     going, replace an existing Logger instance with this class.
     """
-    def __init__(self, filename):
-        self.fl = open(filename, "a")
+    def __init__(self, filename=None):
+        if filename:
+            self.fl = open(filename, "a")
+        else:
+            self.fl = sys.stdout
 
     def debug(self, msg, *args):
         self._log("D", msg, *args)
