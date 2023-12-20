@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROGNAME=$(basename $0)
+PROGNAME=$(basename "$0")
 
 die() {
     echo "$PROGNAME: $*" >&2
@@ -10,8 +10,8 @@ die() {
 
 usage() {
     if [ "$*" != "" ] ; then
-        echo "Error: $*"
-        echo
+        echo "Error: $*" >&2
+        echo >&2
     fi
 
     cat << EOF
