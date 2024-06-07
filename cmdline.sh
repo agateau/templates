@@ -2,6 +2,7 @@
 set -euo pipefail
 
 PROGNAME=$(basename "$0")
+SCRIPT_DIR=$(cd "$(dirname "$(readlink -e "$0")")" ; pwd)
 
 die() {
     echo "$PROGNAME: $*" >&2
