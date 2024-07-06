@@ -1,26 +1,33 @@
 import shlex
 import subprocess
-import sys
 
 from typing import Mapping
 
+from path import Path
 
-def err(msg: str) -> None:
-    print(msg, file=sys.stderr)
-    sys.stderr.flush()
+
+class RunError(Exception):
+    def __init__(self, cmd: list[str], proc: subprocess.CompletedProcess):
+        cmd_str = " ".join(shlex.quote(x) for x in cmd)
+        msg = (
+            f"Command '{cmd_str}' failed with exit code {proc.returncode}\n"
+            "{proc.stdout}"
+        )
+        Exception.__init__(self, msg)
 
 
 def run(
-    cmd: list[str], cwd: str | None = None, env: Mapping[str, str] | None = None
-) -> bool:
-    cmd_str = " ".join(shlex.quote(x) for x in cmd)
-    err(f"Running {cmd_str}")
+    cmd: list[str | Path], cwd: str | None = None, env: Mapping[str, str] | None = None
+) -> subprocess.CompletedProcess:
+    str_cmd: list[str] = [str(x) for x in cmd]
     proc = subprocess.run(
-        cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env
+        str_cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        env=env,
+        cwd=cwd,
+        text=True,
     )
     if proc.returncode != 0:
-        err(f"FAIL with exit code {proc.returncode}")
-        err(proc.stdout)
-        return False
-    err("OK")
-    return True
+        raise RunError(str_cmd, proc)
+    return proc
