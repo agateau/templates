@@ -1,5 +1,5 @@
 name: pkg
-description: Pkg is a wonderful tool.
+description:
 homepage: https://pkg.example.com/
 repository: https://pkg.example.com/git
 releases:

@@ -1,0 +1,16 @@
+name: PKG
+description:
+homepage: https://github.com/OWNER/PKG
+repository: https://github.com/OWNER/PKG
+releases:
+  0.0.0:
+    any:
+      url: https://github.com/dummy
+      sha256: 0
+installs:
+  VERSION:
+    any:
+      files:
+        PKG${exe_ext}: bin/
+      tests:
+        - PKG${exe_ext} --version
