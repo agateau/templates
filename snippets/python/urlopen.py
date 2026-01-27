@@ -5,11 +5,10 @@ import json
 import sys
 
 from http.client import HTTPResponse
-from typing import Dict
 from urllib import request
 
 
-def create_request(url: str, headers: Dict[str, str]) -> request.Request:
+def create_request(url: str, headers: dict[str, str]) -> request.Request:
     req = request.Request(url)
     for key, value in headers.items():
         req.add_header(key, value)
@@ -17,12 +16,12 @@ def create_request(url: str, headers: Dict[str, str]) -> request.Request:
     return req
 
 
-def http_get(url: str, headers: Dict[str, str]) -> HTTPResponse:
+def http_get(url: str, headers: dict[str, str]) -> HTTPResponse:
     req = create_request(url, headers)
     return request.urlopen(req)
 
 
-def http_post(url: str, headers: Dict[str, str], payload: Dict[str, str]) -> HTTPResponse:
+def http_post(url: str, headers: dict[str, str], payload: dict[str, str]) -> HTTPResponse:
     req = create_request(url, headers)
     json_payload = json.dumps(payload).encode("utf-8")
     return request.urlopen(req, json_payload)
