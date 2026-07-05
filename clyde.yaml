@@ -4,9 +4,11 @@ homepage: https://pkg.example.com/
 repository: https://pkg.example.com/git
 releases:
   0.0.0:
-    any:
-      url: https://pkg.example.com/download/pkg
-      sha256: 0
+    added_at: 2000-01-02T12:34:56Z
+    assets:
+      any:
+        url: https://pkg.example.com/download/pkg
+        sha256: abcd
 installs:
   0.0.0:
     any:

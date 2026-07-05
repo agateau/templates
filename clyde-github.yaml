@@ -4,9 +4,11 @@ homepage: https://github.com/OWNER/PKG
 repository: https://github.com/OWNER/PKG
 releases:
   0.0.0:
-    any:
-      url: https://github.com/dummy
-      sha256: 0
+    added_at: 2000-01-02T12:34:56Z
+    assets:
+      any:
+        url: https://github.com/dummy
+        sha256: abcd
 installs:
   VERSION:
     any:
